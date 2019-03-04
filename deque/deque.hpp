@@ -1,3 +1,4 @@
+//a simple implementation of blocking list
 #ifndef SJTU_DEQUE_HPP
 #define SJTU_DEQUE_HPP
 
@@ -121,7 +122,6 @@ namespace sjtu {
             // return th distance between two iterator,
             // if these two iterators points to different vectors, throw invaild_iterator.
 
-            //TODO:if rhs is greater than this,this will have an error
             int operator- ( iterator rhs) const {
                 if (rhs.thisdeque != thisdeque) {
                     throw invalid_iterator();
@@ -151,18 +151,14 @@ namespace sjtu {
                 return *this;
             }
 
-            /**
-             * TODO iter++
-             */
+
             iterator operator++ (int) {
                 auto tmp = *this;
                 operator++();
                 return tmp;
             }
 
-            /**
-             * TODO ++iter
-             */
+
             iterator &operator++ () {
                 if (inner->next == outer->tail) {
                     outer = outer->next;
@@ -173,18 +169,14 @@ namespace sjtu {
                 return *this;
             }
 
-            /**
-             * TODO iter--
-             */
+
             iterator operator-- (int) {
                 auto tmp = *this;
                 operator--();
                 return tmp;
             }
 
-            /**
-             * TODO --iter
-             */
+
             iterator &operator-- () {
 
                 if (inner->prev == outer->head) {
@@ -195,9 +187,7 @@ namespace sjtu {
                 }
             }
 
-            /**
-             * TODO *it
-             */
+
             T &operator* () const {
                 if (*this == thisdeque->end()||*this==(--thisdeque->begin())||this->inner== nullptr) {
                     throw invalid_iterator();
@@ -205,9 +195,6 @@ namespace sjtu {
                 return inner->data;
             }
 
-            /**
-             * TODO it->field
-             */
             T *operator-> () const noexcept {
                 return &(*(*this));
             }
@@ -239,23 +226,19 @@ namespace sjtu {
 
         public:
             const_iterator () : iterator() {
-                // TODO
+
             }
 
             const_iterator (const const_iterator &other) : iterator(other) {
-                // TODO
+
             }
 
             const_iterator (const iterator &other) : iterator(other) {
-                // TODO
+
             }
-            // And other methods in iterator.
-            // And other methods in iterator.
-            // And other methods in iterator.
+
         };
-        /**
-         * TODO Constructors
-         */
+
     private:
 
         block *head;
@@ -381,9 +364,7 @@ namespace sjtu {
             totalsz=other.totalsz;
         }
 
-        /**
-         * TODO Deconstructor
-         */
+
         ~deque () {
             auto p = head;
             while (p != nullptr) {
@@ -393,9 +374,7 @@ namespace sjtu {
             }
         }
 
-        /**
-         * TODO assignment operator
-         */
+
         deque &operator= (const deque &other) {
             if (&other == this) {
                 return *this;

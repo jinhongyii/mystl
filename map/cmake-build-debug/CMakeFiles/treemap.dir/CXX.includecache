@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/jinho/CLionProjects/mystl/map/data/six/code.cpp
+iostream
+-
+cstdio
+-
+algorithm
+-
+cstring
+-
+../../map.hpp
+/mnt/c/Users/jinho/CLionProjects/mystl/map/map.hpp
+
+/mnt/c/Users/jinho/CLionProjects/mystl/map/exceptions.hpp
+cstddef
+-
+cstring
+-
+string
+-
+
+/mnt/c/Users/jinho/CLionProjects/mystl/map/map.hpp
+functional
+-
+cstddef
+-
+utility.hpp
+/mnt/c/Users/jinho/CLionProjects/mystl/map/utility.hpp
+exceptions.hpp
+/mnt/c/Users/jinho/CLionProjects/mystl/map/exceptions.hpp
+
+/mnt/c/Users/jinho/CLionProjects/mystl/map/utility.hpp
+utility
+-
+

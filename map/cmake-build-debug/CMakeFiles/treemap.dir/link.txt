@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/treemap.dir/data/six/code.cpp.o  -o treemap 
