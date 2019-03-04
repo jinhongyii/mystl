@@ -1,4 +1,5 @@
-
+//a simple implementation of LLRB tree
+//not very fast
 #ifndef SJTU_MAP_HPP
 #define SJTU_MAP_HPP
 
@@ -156,10 +157,7 @@ namespace sjtu {
 
             bool operator!= (const const_iterator &rhs) const { return !((*this) == rhs); }
 
-            /**
-             * for the support of it->first.
-             * See <http://kelvinh.github.io/blog/2013/11/20/overloading-of-member-access-operator-dash-greater-than-symbol-in-cpp/> for help.
-             */
+
             Entry *operator-> () const noexcept { return pointer; }
             friend class const_iterator;
         };
@@ -236,12 +234,7 @@ namespace sjtu {
             cleartree(root);
         }
 
-        /**
-         *
-         * access specified element with bounds checking
-         * Returns a reference to the mapped value of the element with key equivalent to key.
-         * If no such element exists, an exception of type `index_out_of_bound'
-         */
+
     private:
         Entry *at (Entry *root , const Key &key)const {
             Compare comp =Compare();
@@ -258,6 +251,12 @@ namespace sjtu {
         }
 
     public:
+        /**
+                *
+                * access specified element with bounds checking
+                * Returns a reference to the mapped value of the element with key equivalent to key.
+                * If no such element exists, an exception of type `index_out_of_bound'
+                */
         Value &at (const Key &key) {
             return at(root , key)->second;
         }
@@ -352,12 +351,7 @@ namespace sjtu {
             length = 0;
         }
 
-        /**
-         * insert an element.
-         * return a pair, the first of the pair is
-         *   the iterator to the new element (or the element that prevented the insertion),
-         *   the second one is true if insert successfully, or false.
-         */
+
     private:
         bool isred (Entry *root) {
             return root != nullptr && root->color == RED;
@@ -387,6 +381,12 @@ namespace sjtu {
         }
 
     public:
+        /**
+        * insert an element.
+        * return a pair, the first of the pair is
+        *   the iterator to the new element (or the element that prevented the insertion),
+        *   the second one is true if insert successfully, or false.
+        */
         pair<iterator , bool> insert (const pair<Key , Value> &keyval) {
             Entry *p;
             if (root == nullptr) {
@@ -407,11 +407,6 @@ namespace sjtu {
 
         }
 
-        /**
-         * erase the element at pos.
-         *
-         * throw if pos pointed to a bad element (pos == this->end() || pos points an element out of this)
-         */
     private:
 
         Entry *fixup (Entry *root) {
@@ -522,6 +517,12 @@ namespace sjtu {
         }
 
     public:
+
+        /**
+         * erase the element at pos.
+         *
+         * throw if pos pointed to a bad element (pos == this->end() || pos points an element out of this)
+         */
         void erase (iterator iter) {
             if (iter == end()||iter.Map!=this) {
                 throw invalid_iterator();

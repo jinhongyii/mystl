@@ -35,13 +35,9 @@ void TestInteger()
 		vInt.push_back(Integer(randNum(i, N + 17)));
 		dInt.push_back(vInt[i]);
 	}
-
 	for (int i = 0; i < N; ++i) {
-
-		if (!(vInt[i] == dInt[i])) {
-
+		if (!(vInt[i] == dInt[i]))
 			error();
-		}
 	}
 	std::cout << "Correct." << std::endl;
 }
@@ -158,10 +154,8 @@ void TestInsertAndErase()
 	vInt.erase(vInt.begin() + 2333);
 	dInt.erase(dInt.begin() + 2333);
 	for (long long i = 0; i < N; ++i) {
-		if (!(*(dInt.begin() + i) == vInt[i])) {
-			std::cout <<*(dInt.begin()+i)<<" "<< dInt[i] << " " << vInt[i] << std::endl;
+		if (!(*(dInt.begin() + i) == vInt[i]))
 			error();
-		}
 	}
 	std::cout << "Correct." << std::endl;
 }

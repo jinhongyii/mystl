@@ -3,4 +3,4 @@ project(deque)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(deque data/two/code.cpp)
+add_executable(deque data/six/code.cpp)

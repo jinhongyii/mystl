@@ -3,4 +3,4 @@ project(vector)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(vector data/1000/data/one/code.cpp)
+add_executable(vector data/three/code.cpp)

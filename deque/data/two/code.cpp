@@ -11,9 +11,9 @@
 #include "../class-bint.hpp"
 #include "../../deque.hpp"
 
-std::default_random_engine randnum(1234);
+std::default_random_engine randnum(time(NULL));
 
-static const int MAX_N = 1500;
+static const int MAX_N = 15000;
 
 template <typename Ans, typename Test>
 bool isEqual(Ans &ans, Test &test) {
@@ -24,11 +24,9 @@ bool isEqual(Ans &ans, Test &test) {
 
     for (int i = 0; i < ans.size(); i++) {
         if (randnum() % 2) {
-            if (ans[i] != test[i])
-                return false;
+            if (ans[i] != test[i]) return false;
         } else {
-            if (ans.at(i) != test.at(i))
-                return false;
+            if (ans.at(i) != test.at(i)) return false;
         }
     }
 
@@ -99,28 +97,20 @@ bool insertTest() {
         switch (randnum() % 2) {
             case 0: deq.insert(deq.begin() + pos, x);
                     ans.insert(ans.begin() + pos, x);
-
                     break;
             case 1: deq.insert(deq.end() - pos, x);
                     ans.insert(ans.end() - pos, x);
-
                     break;
         }
-
     }
 
     ans2.insert(ans2.begin(), 0x5d); ans3.insert(ans3.end(), 93);
     deq2.insert(deq2.begin(), 0x5d); deq3.insert(deq3.end(), 93);
 
-    if (!isEqual(ans2, deq2) )
+    if (!isEqual(ans2, deq2) || !isEqual(ans3, deq3))
         return false;
-    if (!isEqual(ans3 , deq3)) {
-        return false;
-    }
-    if(!isEqual(ans, deq)) {
-        return false;
-    }
-    return true;
+
+    return isEqual(ans, deq);
 }
 bool iteratorTest() {
     std::deque<int> ans;
@@ -269,9 +259,7 @@ bool copyAndClearTest() {
     // you should call the constructor and deconstructor correctly
     {
         std::deque<DynamicType> ans;
-        sjtu::deque<DynamicType> deq;
-        auto deq2 = deq;
-        auto deq3(deq2);
+        sjtu::deque<DynamicType> deq, deq2 = deq, deq3(deq2);
 
         // empty copy and clear
         deq.clear(); deq2.clear();  deq3.clear();
@@ -470,12 +458,12 @@ int main() {
 
     bool error = false;
     for (int i = 0; i < sizeof(testFunc) / sizeof(testFunc[0]); i++) {
-        std::cout<<("%-40s", testMessage[i]);
+        printf("%-40s", testMessage[i]);
         if (testFunc[i]())
-            std::cout<<("Passed")<<std::endl;
+            printf("Passed\n");
         else {
             error = true;
-            std::cout<<("Failed !!!")<<std::endl;
+            printf("Failed !!!\n");
         }
     }
 

@@ -1,5 +1,5 @@
 class Integer {
-public:
+private:
 	int data;
 public:
 	Integer(const int &value) : data(value) {}

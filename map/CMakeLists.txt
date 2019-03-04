@@ -3,4 +3,4 @@ project(treemap)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(treemap data/six.memcheck/code.cpp)
+add_executable(treemap data/six/code.cpp)

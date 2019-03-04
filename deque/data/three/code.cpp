@@ -16,7 +16,7 @@ static const int N_SPEED = 33500;
 typedef std::pair<const char *, std::pair<bool, double> (*)()> CheckerPair;
 
 class Int{
-public:
+private:
 	int data;
 
 public:
@@ -588,7 +588,6 @@ std::pair<bool, double> iteratorMinusOperatorChecker() {
 	for (int i = 0; i < tmp1; i++) itA1++, itB1++;
 	for (int i = 0; i < tmp2; i++) itA2++, itB2++;
 	if (itA2 - itA1 != itB2 - itB1) {
-		std::cout<<itA2-itA1<<" "<<itB2-itB1<<std::endl;
 		return std::make_pair(false, 0);
 	}
 	if (a.end() - a.begin() != b.end() - b.begin()) {
@@ -1095,11 +1094,9 @@ std::pair<bool, double> iteratorInsertPersistenceChecker() {
 		itB = b.insert(itB, tmp);
 		delta = itA - a.begin();
 		if (b.begin() + delta != itB) {
-			std::cout<<"itB-b.begin()  expected:"<<delta<<" actual:"<<itB-b.begin()<<std::endl;
 			return std::make_pair(false, 0);
 		}
 		if (*itA != *itB) {
-			std::cout<<"*itA!=*itB *itA="<<(*itA).data<<" *itB="<<(*itB).data<<std::endl;
 			return std::make_pair(false, 0);
 		}
 	}

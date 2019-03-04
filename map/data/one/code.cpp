@@ -114,6 +114,8 @@ void tester(void) {
 }
 
 int main(void) {
+	auto i=clock();
 	tester();
 	std::cout << Integer::counter << std::endl;
+	std::cout<<double(clock()-i)/CLOCKS_PER_SEC;
 }

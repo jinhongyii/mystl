@@ -18,7 +18,7 @@ long long randNum(long long x,long long maxNum)
 	x = (x * 10007) % maxNum;
 	return x + 1; 
 } 
-const size_t N = 100005LL;
+const size_t N = 10005LL;
 
 void error()
 {

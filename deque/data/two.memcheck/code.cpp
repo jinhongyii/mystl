@@ -427,7 +427,7 @@ bool nomercyTest() {
     {
         std::deque<int> ans;
         sjtu::deque<int> deq;
-        randnumFill(ans, deq, 100000);
+        randnumFill(ans, deq, 10000);
         if (!dfs(19960904, ans, deq))
             return false;
 
